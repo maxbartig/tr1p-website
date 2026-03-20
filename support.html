@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TR1P Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=General+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="background">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="particles" aria-hidden="true">
+      <span style="--x:10%;--d:8s;"></span>
+      <span style="--x:30%;--d:10s;"></span>
+      <span style="--x:50%;--d:7s;"></span>
+      <span style="--x:70%;--d:9s;"></span>
+      <span style="--x:85%;--d:11s;"></span>
+    </div>
+  </div>
+
+  <header class="nav nav-page">
+    <div class="logo">
+      <a href="./index.html"><img class="logo-img" src="./assets/4.png" alt="TR1P logo" /></a>
+    </div>
+    <nav>
+      <a href="./index.html#features">Features</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./suggest.html">Suggest</a>
+      <a href="https://testflight.apple.com/join/YW9Vkv33" target="_blank" rel="noopener">Download</a>
+    </nav>
+    <a class="ghost" href="./index.html">Back home</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero reveal">
+      <p class="eyebrow">TR1P Support</p>
+      <h1>Get help with tracking, trips, stats, or your account.</h1>
+      <p class="lede">Use the form below to reach support for bug reports, TestFlight issues, trip detection questions, privacy requests, or premium access problems.</p>
+    </section>
+
+    <section class="support-grid">
+      <div class="support-panel reveal">
+        <h2>Contact support</h2>
+        <p class="lede">We will reply to the email you provide. For the fastest help, include your device, iOS version, and what happened before the issue showed up.</p>
+        <form id="support-page-form" class="support-form">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            <span>Topic</span>
+            <select name="topic" required>
+              <option value="TR1P Support Request">General support</option>
+              <option value="TR1P Trip Detection Issue">Trip detection</option>
+              <option value="TR1P Premium Support">Premium and unlocks</option>
+              <option value="TR1P Privacy Request">Privacy request</option>
+              <option value="TR1P Bug Report">Bug report</option>
+            </select>
+          </label>
+          <label>
+            <span>Support message</span>
+            <textarea name="message" rows="7" required placeholder="Tell us what happened, what you expected, and anything helpful like your device model or app version."></textarea>
+          </label>
+          <button class="primary" type="submit">Send support request</button>
+        </form>
+      </div>
+
+      <div class="support-sidebar reveal">
+        <div class="support-card">
+          <p class="eyebrow">Email</p>
+          <h3>support@tr1p.app</h3>
+          <p>Use this for direct questions, bug reports, TestFlight access help, or privacy requests.</p>
+        </div>
+        <div class="support-card">
+          <p class="eyebrow">Common topics</p>
+          <ul class="support-list">
+            <li>Trip detection did not start or stop correctly</li>
+            <li>Missing route, distance, or speed data</li>
+            <li>Premium insights or free unlock issues</li>
+            <li>Share card or archive/delete action questions</li>
+            <li>Privacy, data export, or deletion requests</li>
+          </ul>
+        </div>
+        <div class="support-card">
+          <p class="eyebrow">Helpful details</p>
+          <ul class="support-list">
+            <li>iPhone model and iOS version</li>
+            <li>TR1P app version</li>
+            <li>Whether Background App Refresh and Location access are enabled</li>
+            <li>Approximate date and time of the issue</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>TR1P © 2026 • Smart drive tracking.</div>
+    <div class="footer-links">
+      <a href="./privacy.html">Privacy</a>
+      <a href="./suggest.html">Suggest</a>
+      <a href="./support.html">Support</a>
+      <a href="./index.html">Home</a>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

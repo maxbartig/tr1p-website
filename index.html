@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TR1P — Drive better, every run counts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=General+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="background">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="particles" aria-hidden="true">
+      <span style="--x:10%;--d:8s;"></span>
+      <span style="--x:30%;--d:10s;"></span>
+      <span style="--x:50%;--d:7s;"></span>
+      <span style="--x:70%;--d:9s;"></span>
+      <span style="--x:85%;--d:11s;"></span>
+      <span style="--x:20%;--d:12s;"></span>
+      <span style="--x:60%;--d:8.5s;"></span>
+      <span style="--x:90%;--d:13s;"></span>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="logo">
+      <img class="logo-img" src="./assets/4.png" alt="TR1P logo" />
+    </div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#hud">Live HUD</a>
+      <a href="#social">Social</a>
+      <a href="https://testflight.apple.com/join/YW9Vkv33" target="_blank" rel="noopener">Download</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="ghost" href="./suggest.html">Suggest</a>
+      <a class="ghost" href="./support.html">Support</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <h1 class="hero-title">
+          <span class="hero-title__intro">The app for</span>
+          <span class="hero-title__dynamic" data-roles='["Drivers","Commuters","Rideshare drivers","Delivery runs","Road trippers","Daily grinders","Car enthusiasts"]'>Drivers</span>
+        </h1>
+        <p class="lede">TR1P keeps a live HUD on your speed, auto-detects trips, and turns your driving history into shareable wins. No clutter—just the signal.</p>
+        <div class="cta-row">
+          <a class="primary" href="https://testflight.apple.com/join/YW9Vkv33" target="_blank" rel="noopener">Get early access</a>
+          <a class="secondary" href="#features">See how it works</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" id="hud">
+        <div class="mini-map" aria-hidden="true">
+          <svg viewBox="0 0 320 240" class="mini-map__canvas">
+            <defs>
+              <linearGradient id="roadGrad" x1="0%" x2="100%">
+                <stop offset="0%" stop-color="rgba(30,30,30,0.72)" />
+                <stop offset="100%" stop-color="rgba(120,120,120,0.9)" />
+              </linearGradient>
+            </defs>
+            <path d="M20 210 C80 180 100 120 160 120 S260 60 300 80" />
+          </svg>
+          <div class="navigator"></div>
+          <div class="ping ping-a"></div>
+          <div class="ping ping-b"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-grid" id="features">
+      <article class="card reveal">
+        <p class="eyebrow">TR1Ptronic</p>
+        <h3>Automatic trip detection</h3>
+        <p>TR1P watches for real driving motion, starts tracking on its own, and still gives you a manual start and stop option when you want control.</p>
+        <div class="tag">Auto detect</div>
+        <div class="tag">Manual override</div>
+      </article>
+
+      <article class="card reveal">
+        <p class="eyebrow">Trip detail</p>
+        <h3>Every drive becomes a usable record</h3>
+        <p>Review route previews, duration, distance, speed data, and whether a drive saved or added time compared with the usual route.</p>
+        <div class="sparkline" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <p class="eyebrow">Safety</p>
+        <h3>See what happened during the drive</h3>
+        <p>Harsh braking, harsh acceleration, and incident moments get collected into a timeline so the trip is more than just a line on a map.</p>
+        <div class="tag">Harsh braking</div>
+        <div class="tag">Harsh acceleration</div>
+      </article>
+
+      <article class="card reveal" id="social">
+        <p class="eyebrow">Insights</p>
+        <h3>Stats that feel premium</h3>
+        <p>Filter your stats by day, week, month, or year, unlock advanced insights, and share clean trip cards when a drive is worth sending.</p>
+        <div class="avatars" aria-hidden="true">
+          <span class="dot" style="--d:0"></span>
+          <span class="dot" style="--d:1"></span>
+          <span class="dot" style="--d:2"></span>
+          <span class="dot" style="--d:3"></span>
+        </div>
+      </article>
+    </section>
+
+    <section class="phone-showcase reveal" aria-label="Product screens">
+      <div class="phone-cluster">
+        <figure class="phone phone-left">
+          <img src="./assets/1.png" alt="TR1P statistics screen showing performance over time" loading="lazy" />
+        </figure>
+        <figure class="phone phone-center">
+          <img src="./assets/2.png" alt="TR1P live tracking HUD with speed and route" loading="lazy" />
+        </figure>
+        <figure class="phone phone-right">
+          <img src="./assets/3.png" alt="TR1P trip history list with mini maps and durations" loading="lazy" />
+        </figure>
+      </div>
+      <div class="phone-showcase__copy">
+        <p class="eyebrow">Inside TR1P</p>
+        <h2>A cleaner way to understand every drive</h2>
+        <p class="lede">Stats, live tracking, and trip history each get their own lane here so the product feels organized, intentional, and easy to scan.</p>
+        <div class="phone-showcase__stats">
+          <div class="mini-stat">
+            <span class="mini-stat__label">Stats</span>
+            <strong>1 day to 1 year filtering</strong>
+            <p>Compare distance, speed distribution, monthly distance, and drive streaks over time.</p>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat__label">Tracking</span>
+            <strong>Live HUD with route context</strong>
+            <p>Automatic detection, live route capture, speed context, and route timing without manual logging.</p>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat__label">History</span>
+            <strong>Share, archive, or review later</strong>
+            <p>Trip cards stay organized with map previews, quick actions, and clean summaries ready to share.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="insight-rows">
+      <article class="insight-row reveal">
+        <div>
+          <p class="eyebrow">Drive intelligence</p>
+          <h3>From trip detection to premium insights</h3>
+        </div>
+        <p>TR1P is built to feel automatic first. It detects drives, records route and distance data, and turns each trip into something easy to read instead of another forgotten log.</p>
+      </article>
+      <article class="insight-row reveal">
+        <div>
+          <p class="eyebrow">Trip detail</p>
+          <h3>Useful in the moment and useful later</h3>
+        </div>
+        <p>Users can see how far they drove, how long the trip took, how fast they were going, and whether the route saved or added time, all from one clean detail view.</p>
+      </article>
+      <article class="insight-row reveal">
+        <div>
+          <p class="eyebrow">Control</p>
+          <h3>Fine-tune how TR1P behaves</h3>
+        </div>
+        <p>Settings let users dial in trip detection, while premium unlocks, free rewards, sharable cards, and stats filtering push the app beyond simple route logging.</p>
+      </article>
+    </section>
+
+    <section class="feature-matrix reveal" aria-label="TR1P feature list">
+      <div class="feature-matrix__intro">
+        <p class="eyebrow">15 client-facing features</p>
+        <h2>Everything the app already does</h2>
+      </div>
+      <div class="feature-list">
+        <div class="feature-pill">Automatic trip detection with TR1Ptronic</div>
+        <div class="feature-pill">Manual trip start and stop option</div>
+        <div class="feature-pill">Full trip history with detailed trip cards</div>
+        <div class="feature-pill">Interactive map preview for each drive</div>
+        <div class="feature-pill">Trip detail screen with route, duration, distance, and speed data</div>
+        <div class="feature-pill">Time saved or time added tracking for each trip</div>
+        <div class="feature-pill">Harsh braking detection</div>
+        <div class="feature-pill">Harsh acceleration detection</div>
+        <div class="feature-pill">Incident timeline for each trip</div>
+        <div class="feature-pill">Statistics dashboard with filter ranges from 1 day to 1 year</div>
+        <div class="feature-pill">Speed distribution and monthly distance charts</div>
+        <div class="feature-pill">Drive streak tracking</div>
+        <div class="feature-pill">Swipe actions to archive or delete trips</div>
+        <div class="feature-pill">Shareable trip summary cards for messages and other apps</div>
+        <div class="feature-pill">Premium upgrade flow with free unlocks for advanced trip insights</div>
+      </div>
+    </section>
+
+    <section class="speed-story reveal" aria-label="Time saved while driving">
+      <div class="speed-story__copy">
+        <p class="eyebrow">Time saved</p>
+        <h2>Ever wondered how much time you cut off while speeding?</h2>
+        <p class="lede">TR1P turns that feeling into something visible. Instead of guessing, you can see when a route actually saved time, when it added time, and whether pushing harder made any real difference at all.</p>
+        <div class="speed-story__stats">
+          <div class="mini-stat">
+            <span class="mini-stat__label">Reality check</span>
+            <strong>Minutes, not myths</strong>
+            <p>See how small speed gains can translate into surprisingly small time changes.</p>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat__label">Trip detail</span>
+            <strong>Time saved or added</strong>
+            <p>Every drive can show whether the route helped or slowed you down compared with normal patterns.</p>
+          </div>
+        </div>
+      </div>
+      <div class="speed-visual" aria-hidden="true">
+        <div class="speed-visual__card">
+          <div class="speed-visual__labels">
+            <span>Cruising</span>
+            <span>Speeding</span>
+          </div>
+          <div class="speed-lane">
+            <div class="speed-lane__track"></div>
+            <div class="speed-lane__car speed-lane__car--base"></div>
+            <div class="speed-lane__car speed-lane__car--fast"></div>
+          </div>
+          <div class="speed-visual__footer">
+            <div>
+              <span class="mini-stat__label">Average trip</span>
+              <strong>18.4 mi</strong>
+            </div>
+            <div>
+              <span class="mini-stat__label">Difference</span>
+              <strong>-2m 14s</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="split" id="cta">
+      <div class="reveal">
+        <p class="eyebrow">Privacy-first</p>
+        <h2>Your data stays on your phone</h2>
+        <p class="lede">Encrypted local storage with optional iCloud sync. You choose what leaves the device—share a single trip or nothing at all.</p>
+        <div class="cta-row">
+          <a class="primary" href="https://testflight.apple.com/join/YW9Vkv33" target="_blank" rel="noopener">Request invite</a>
+          <a class="ghost" href="#features">View sample trips</a>
+        </div>
+      </div>
+      <div class="timeline reveal" aria-label="Timeline of a tracked trip">
+        <div class="step">
+          <div class="dot"></div>
+          <div>
+            <p class="label">Detect</p>
+            <p>Motion kicks in, TR1P starts silently.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <div>
+            <p class="label">Track</p>
+            <p>Live HUD with map, speed, distance, ETA delta.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <div>
+            <p class="label">Store</p>
+            <p>Trip saved with mini map, stats, and archive options.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <div>
+            <p class="label">Share (optional)</p>
+            <p>Send a highlight to friends—no location leaking without consent.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>TR1P © 2026 • Built for drivers who obsess over the details.</div>
+    <div class="footer-links">
+      <a href="./privacy.html">Privacy</a>
+      <a href="#">Status</a>
+      <a href="./suggest.html">Suggest</a>
+      <a href="./support.html">Support</a>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

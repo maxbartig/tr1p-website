@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TR1P Feature Suggestions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=General+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="background">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="particles" aria-hidden="true">
+      <span style="--x:10%;--d:8s;"></span>
+      <span style="--x:30%;--d:10s;"></span>
+      <span style="--x:50%;--d:7s;"></span>
+      <span style="--x:70%;--d:9s;"></span>
+      <span style="--x:85%;--d:11s;"></span>
+    </div>
+  </div>
+
+  <header class="nav nav-page">
+    <div class="logo">
+      <a href="./index.html"><img class="logo-img" src="./assets/4.png" alt="TR1P logo" /></a>
+    </div>
+    <nav>
+      <a href="./index.html#features">Features</a>
+      <a href="./privacy.html">Privacy</a>
+      <a href="./support.html">Support</a>
+      <a href="https://testflight.apple.com/join/YW9Vkv33" target="_blank" rel="noopener">Download</a>
+    </nav>
+    <a class="ghost" href="./index.html">Back home</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero reveal">
+      <p class="eyebrow">Feature Suggestions</p>
+      <h1>Tell us what TR1P should build next.</h1>
+      <p class="lede">Have an idea for better trip insights, smarter route comparisons, cleaner sharing, or new charts? Send it here and we will use it to shape future TR1P updates.</p>
+    </section>
+
+    <section class="support-grid">
+      <div class="support-panel reveal">
+        <h2>Suggest a feature</h2>
+        <p class="lede">The more specific the idea, the more useful it is. Tell us what problem it solves, who it helps, and how you imagine it working inside the app.</p>
+        <form id="suggest-page-form" class="support-form">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            <span>Suggestion type</span>
+            <select name="topic" required>
+              <option value="TR1P Feature Suggestion">General feature idea</option>
+              <option value="TR1P Stats Suggestion">Stats and insights</option>
+              <option value="TR1P Tracking Suggestion">Trip detection and tracking</option>
+              <option value="TR1P Sharing Suggestion">Sharing and social</option>
+              <option value="TR1P Premium Suggestion">Premium and unlock ideas</option>
+            </select>
+          </label>
+          <label>
+            <span>Your suggestion</span>
+            <textarea name="message" rows="7" required placeholder="Describe the feature, who would use it, and what it should help them do better."></textarea>
+          </label>
+          <button class="primary" type="submit">Send suggestion</button>
+        </form>
+      </div>
+
+      <div class="support-sidebar reveal">
+        <div class="support-card">
+          <p class="eyebrow">Good suggestions include</p>
+          <ul class="support-list">
+            <li>The problem you are trying to solve</li>
+            <li>What part of TR1P the idea improves</li>
+            <li>How often you would use it</li>
+            <li>What the ideal screen or workflow would feel like</li>
+          </ul>
+        </div>
+        <div class="support-card">
+          <p class="eyebrow">Popular idea areas</p>
+          <ul class="support-list">
+            <li>Deeper route comparison and time saved views</li>
+            <li>More charts, streaks, and historical insights</li>
+            <li>Smarter incident detection and trip summaries</li>
+            <li>Better sharing, exporting, and premium features</li>
+          </ul>
+        </div>
+        <div class="support-card">
+          <p class="eyebrow">Where it goes</p>
+          <h3>support@tr1p.app</h3>
+          <p>Your suggestion opens an email draft so you can send it directly and keep a copy of what you submitted.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>TR1P © 2026 • Smart drive tracking.</div>
+    <div class="footer-links">
+      <a href="./privacy.html">Privacy</a>
+      <a href="./suggest.html">Suggest</a>
+      <a href="./support.html">Support</a>
+      <a href="./index.html">Home</a>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
