@@ -7,19 +7,30 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-// Animate the speed number for a subtle live feel
-const speedEl = document.querySelector('.speed');
-if (speedEl) {
-  const target = Number(speedEl.dataset.target || 68);
-  let current = target - 12;
-  const tick = () => {
-    current += Math.random() * 1.8;
-    if (current > target + 3) current = target - 6;
-    speedEl.textContent = Math.round(current);
-    requestAnimationFrame(tick);
-  };
-  tick();
-}
+// Mobile nav menu
+const nav = document.querySelector('.nav');
+const navToggle = document.querySelector('.nav-toggle');
+const navMenuLinks = document.querySelectorAll('.nav-menu a');
+
+const closeNav = () => {
+  if (!nav || !navToggle) return;
+  nav.classList.remove('is-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+};
+
+navToggle?.addEventListener('click', () => {
+  if (!nav) return;
+  const open = nav.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded', String(open));
+});
+
+navMenuLinks.forEach((link) => {
+  link.addEventListener('click', () => closeNav());
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNav();
+});
 
 // Smooth scroll for anchor links
 const navLinks = document.querySelectorAll('a[href^="#"]');
