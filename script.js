@@ -1,92 +1,111 @@
-// Light JS for scroll reveals and playful HUD tick
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+// ===== Mobile nav =====
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('nav-links');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
   });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-// Mobile nav menu
-const nav = document.querySelector('.nav');
-const navToggle = document.querySelector('.nav-toggle');
-const navMenuLinks = document.querySelectorAll('.nav-menu a');
-
-const closeNav = () => {
-  if (!nav || !navToggle) return;
-  nav.classList.remove('is-open');
-  navToggle.setAttribute('aria-expanded', 'false');
-};
-
-navToggle?.addEventListener('click', () => {
-  if (!nav) return;
-  const open = nav.classList.toggle('is-open');
-  navToggle.setAttribute('aria-expanded', String(open));
-});
-
-navMenuLinks.forEach((link) => {
-  link.addEventListener('click', () => closeNav());
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Smooth scroll for anchor links
-const navLinks = document.querySelectorAll('a[href^="#"]');
-navLinks.forEach((link) => {
-  link.addEventListener('click', (e) => {
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
-
-const supportPageForm = document.getElementById('support-page-form');
-const suggestPageForm = document.getElementById('suggest-page-form');
-
-supportPageForm?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const data = new FormData(supportPageForm);
-  const name = data.get('name') || 'Someone';
-  const email = data.get('email') || '';
-  const topic = data.get('topic') || 'Support Request';
-  const message = data.get('message') || '';
-  const body = encodeURIComponent(`From: ${name} (${email})\nTopic: ${topic}\n\n${message}`);
-  window.open(`mailto:support@tr1p.app?subject=${encodeURIComponent(String(topic))}&body=${body}`, '_blank');
-  supportPageForm.reset();
-});
-
-suggestPageForm?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const data = new FormData(suggestPageForm);
-  const name = data.get('name') || 'Someone';
-  const email = data.get('email') || '';
-  const topic = data.get('topic') || 'TR1P Feature Suggestion';
-  const message = data.get('message') || '';
-  const body = encodeURIComponent(`From: ${name} (${email})\nTopic: ${topic}\n\n${message}`);
-  window.open(`mailto:support@tr1p.app?subject=${encodeURIComponent(String(topic))}&body=${body}`, '_blank');
-  suggestPageForm.reset();
-});
-
-// Rotate hero audience text
-const dynamicRole = document.querySelector('.hero-title__dynamic');
-if (dynamicRole) {
-  const roles = JSON.parse(dynamicRole.dataset.roles || '[]');
-  let roleIndex = 0;
-
-  const swapRole = () => {
-    roleIndex = (roleIndex + 1) % roles.length;
-    dynamicRole.classList.remove('is-changing');
-    requestAnimationFrame(() => {
-      dynamicRole.textContent = roles[roleIndex];
-      dynamicRole.classList.add('is-changing');
+  navLinks.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
     });
-  };
-
-  if (roles.length > 1) {
-    setInterval(swapRole, 2200);
-  }
+  });
 }
+
+// ===== Live "bank" timer in the hero phone mock =====
+(function bankTimer() {
+  const el = document.getElementById('bankTimer');
+  if (!el) return;
+  let seconds = 3 * 60 + 42;
+  setInterval(() => {
+    seconds += 1;
+    const m = Math.floor(seconds / 60);
+    const s = String(seconds % 60).padStart(2, '0');
+    el.textContent = `${m}m ${s}s`;
+  }, 1000);
+})();
+
+// ===== Passport counters, triggered once when scrolled into view =====
+(function passportCounters() {
+  const card = document.getElementById('passportCard');
+  if (!card) return;
+
+  const shavedTarget = 204; // minutes
+  const shavedEl = document.getElementById('pShaved');
+  const targets = Array.from(card.querySelectorAll('[data-target]'));
+
+  let counted = false;
+  function run() {
+    if (counted) return;
+    counted = true;
+    const start = performance.now();
+    const dur = 1500;
+    function frame(now) {
+      const k = Math.min(1, (now - start) / dur);
+      const e = 1 - Math.pow(1 - k, 3);
+      targets.forEach((elx) => {
+        const target = parseInt(elx.getAttribute('data-target'), 10);
+        elx.textContent = target >= 1000
+          ? Math.round(target * e).toLocaleString('en-US')
+          : String(Math.round(target * e));
+      });
+      if (shavedEl) {
+        const val = Math.round(shavedTarget * e);
+        shavedEl.textContent = `${Math.floor(val / 60)}h ${val % 60}m`;
+      }
+      if (k < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    if (entries.some((en) => en.isIntersecting)) run();
+  }, { threshold: 0.35 });
+  obs.observe(card);
+})();
+
+// ===== Pricing plan selection =====
+(function plans() {
+  const buttons = document.querySelectorAll('.plan');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.remove('is-selected'));
+      btn.classList.add('is-selected');
+    });
+  });
+})();
+
+// ===== Pricing headline word ticker =====
+(function pricingTicker() {
+  const el = document.getElementById('pricingTicker');
+  if (!el) return;
+  const words = ['unlimited drives', 'Live Activities', 'personal records', 'instant results'];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % words.length;
+    el.style.opacity = '0';
+    setTimeout(() => {
+      el.textContent = words[i];
+      el.style.opacity = '1';
+    }, 200);
+  }, 2400);
+  el.style.transition = 'opacity .2s';
+})();
+
+// ===== FAQ accordion =====
+(function faq() {
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach((item) => {
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-open');
+      items.forEach((it) => it.classList.remove('is-open'));
+      if (willOpen) item.classList.add('is-open');
+    });
+  });
+  if (items[0]) items[0].classList.add('is-open');
+})();

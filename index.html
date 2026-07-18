@@ -1,305 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TR1P — Drive better, every run counts</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=General+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="./assets/4.png" />
-  <link rel="stylesheet" href="./styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>TR1P — Every drive is a race against the map.</title>
+<meta name="description" content="TR1P snapshots the map's ETA the moment you pull out. Beat it, and the minutes go in the bank — automatically, on every trip." />
+<link rel="icon" type="image/png" href="./assets/4.png" />
+<link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <div class="background">
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
-    <div class="particles" aria-hidden="true">
-      <span style="--x:10%;--d:8s;"></span>
-      <span style="--x:30%;--d:10s;"></span>
-      <span style="--x:50%;--d:7s;"></span>
-      <span style="--x:70%;--d:9s;"></span>
-      <span style="--x:85%;--d:11s;"></span>
-      <span style="--x:20%;--d:12s;"></span>
-      <span style="--x:60%;--d:8.5s;"></span>
-      <span style="--x:90%;--d:13s;"></span>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <span class="brand-wheel brand-wheel-l"></span>
+        <span class="brand-wheel brand-wheel-r"></span>
+        <span class="brand-body"></span>
+      </span>
+      <span class="brand-name">TR1P</span>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#passport">Passport</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-white nav-cta" href="https://testflight.apple.com/join/YW9Vkv33">Get the app</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+      <div class="hero-fade"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="pill">
+          <span class="dot"></span>Auto-detects the drive. Scores it live.
+        </div>
+        <h1>Every drive is a race against the map.</h1>
+        <p class="hero-sub">TR1P snapshots the map's ETA the moment you pull out. Beat it, and the minutes go in the bank — automatically, on every trip.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-white btn-lg" href="https://testflight.apple.com/join/YW9Vkv33">Download for iPhone</a>
+          <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
+        </div>
+        <div class="hero-meta">
+          <span>Free to try</span><span>·</span><span>Not a monitoring app — just a scoreboard</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="float-chip chip-a">
+          <span class="dot"></span>Home &rarr; Gym · 3m banked
+        </div>
+        <div class="float-chip chip-b">
+          <span class="badge-num">12</span>Day streak alive
+        </div>
+
+        <div class="phone">
+          <div class="phone-inner">
+            <div class="notch"></div>
+            <div class="phone-body">
+              <div class="live-label">LIVE NOW</div>
+              <div class="race-card">
+                <div class="race-top">
+                  <span>Morning Commute · vs Maps ETA</span><span>62 mph</span>
+                </div>
+                <div class="race-row">
+                  <div><span class="race-place">HOME</span> <span class="race-time">8:04</span></div>
+                  <div class="race-track"><span class="race-dot"></span></div>
+                  <div class="race-place-right"><span class="race-time">8:27</span> <span class="race-place">WORK</span></div>
+                </div>
+                <div class="race-bar"><span style="width:62%"></span></div>
+                <div class="race-foot">
+                  <div>
+                    <div class="race-beat">Beating the ETA by <span id="bankTimer">3m 42s</span></div>
+                    <div class="race-sub">Started automatically</div>
+                  </div>
+                  <div class="race-plus">+4m</div>
+                </div>
+              </div>
+
+              <div class="timeline-card">
+                <div class="timeline-label">RIGHT NOW</div>
+                <div class="timeline-row done"><span class="tdot"></span><span class="tlabel">Drive detected automatically</span><span class="ttime">Done · 8:04</span></div>
+                <div class="timeline-row done"><span class="tdot"></span><span class="tlabel">Merged onto I-80 · avg 62 mph</span><span class="ttime">Done · 8:11</span></div>
+                <div class="timeline-row now"><span class="tdot"></span><span class="tlabel">Beating the ETA</span><span class="ttime">+4m and counting</span></div>
+                <div class="timeline-row"><span class="tdot"></span><span class="tlabel">Arrival scored &amp; saved</span><span class="ttime">8:27 est.</span></div>
+              </div>
+
+              <div class="mini-stats">
+                <div class="mini-stat"><div class="mini-val accent">3h 24m</div><div class="mini-lbl">time shaved</div></div>
+                <div class="mini-stat"><div class="mini-val">12</div><div class="mini-lbl">day streak</div></div>
+                <div class="mini-stat"><div class="mini-val">132</div><div class="mini-lbl">drives</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-strip" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-set">
+        <span class="ticker-item"><span class="mark">&#9673;</span>Auto-detects every drive</span>
+        <span class="ticker-item"><span class="mark">&#9642;</span>Race the ETA on your Lock Screen</span>
+        <span class="ticker-item"><span class="mark">+</span>Bank the minutes you win</span>
+        <span class="ticker-item"><span class="mark">&uarr;</span>Streaks, records &amp; Weekly Wrapped</span>
+        <span class="ticker-item"><span class="mark">&#8998;</span>Drives stay on your phone</span>
+        <span class="ticker-item"><span class="mark">&check;</span>Safety warnings never affect your score</span>
+      </div>
+      <div class="ticker-set">
+        <span class="ticker-item"><span class="mark">&#9673;</span>Auto-detects every drive</span>
+        <span class="ticker-item"><span class="mark">&#9642;</span>Race the ETA on your Lock Screen</span>
+        <span class="ticker-item"><span class="mark">+</span>Bank the minutes you win</span>
+        <span class="ticker-item"><span class="mark">&uarr;</span>Streaks, records &amp; Weekly Wrapped</span>
+        <span class="ticker-item"><span class="mark">&#8998;</span>Drives stay on your phone</span>
+        <span class="ticker-item"><span class="mark">&check;</span>Safety warnings never affect your score</span>
+      </div>
     </div>
   </div>
 
-  <header class="nav">
-    <div class="logo">
-      <img class="logo-img" src="./assets/4.png" alt="TR1P logo" />
-    </div>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <div class="nav-menu" id="site-menu">
-      <nav>
-        <a href="#features">Features</a>
-        <a href="#hud">Live HUD</a>
-        <a href="#social">Social</a>
-        <a href="https://testflight.apple.com/join/YW9Vkv33" target="_blank" rel="noopener">Download</a>
-      </nav>
-      <div class="nav-actions">
-        <a class="ghost" href="./suggest.html">Suggest</a>
-        <a class="ghost" href="./support.html">Support</a>
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section">
+    <div class="eyebrow">HOW IT WORKS</div>
+    <h2 class="section-title">Zero effort. The race starts when you pull out.</h2>
+    <div class="grid grid-3">
+      <div class="card step-card">
+        <div class="step-icon icon-white">&#9673;</div>
+        <div class="step-n">STEP 1</div>
+        <div class="step-title">Pull out. That&rsquo;s it.</div>
+        <p class="step-desc">Auto-detection uses the motion chip to spot the drive and snapshot the map&rsquo;s predicted ETA for your route — no buttons, no setup.</p>
+      </div>
+      <div class="card step-card">
+        <div class="step-icon icon-blue">&#9642;</div>
+        <div class="step-n">STEP 2</div>
+        <div class="step-title">Race the ETA, live.</div>
+        <p class="step-desc">Your progress vs the prediction runs on the Lock Screen and Dynamic Island. Ahead shows green. Behind just counts as a drive — no penalty.</p>
+      </div>
+      <div class="card step-card">
+        <div class="step-icon icon-blue">+4</div>
+        <div class="step-n">STEP 3</div>
+        <div class="step-title">Park. Bank the minutes.</div>
+        <p class="step-desc">Arrive early and the difference goes in the bank the second you park. Streaks, records, and your passport update automatically.</p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="hero-copy reveal">
-        <h1 class="hero-title">
-          <span class="hero-title__intro">The app for</span>
-          <span class="hero-title__dynamic" data-roles='["Drivers","Commuters","Rideshare drivers","Delivery runs","Road trippers","Daily grinders","Car enthusiasts"]'>Drivers</span>
-        </h1>
-        <p class="lede">TR1P keeps a live HUD on your speed, auto-detects trips, and turns your driving history into shareable wins. No clutter—just the signal.</p>
-        <div class="cta-row">
-          <a class="primary" href="https://testflight.apple.com/join/YW9Vkv33" target="_blank" rel="noopener">Get early access</a>
-          <a class="secondary" href="#features">See how it works</a>
-        </div>
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <div class="eyebrow">FEATURES</div>
+    <div class="features-head">
+      <h2 class="section-title" style="max-width:560px;">Your driving, beautifully counted.</h2>
+      <p class="features-sub">Everything runs in the background. You just drive — TR1P keeps score.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card feat-card"><div class="feat-icon icon-blue">&#9642;</div><div class="feat-title">Live Activities</div><p class="feat-desc">The race on your Lock Screen and Dynamic Island, updating in real time.</p></div>
+      <div class="card feat-card"><div class="feat-icon icon-purple">&#9638;</div><div class="feat-title">Weekly Wrapped</div><p class="feat-desc">Your week of driving, wrapped every Sunday night.</p></div>
+      <div class="card feat-card"><div class="feat-icon icon-blue">&uarr;</div><div class="feat-title">Streak Watch</div><p class="feat-desc">A heads-up before your day streak is about to break.</p></div>
+      <div class="card feat-card"><div class="feat-icon icon-blue">&#9733;</div><div class="feat-title">Personal records</div><p class="feat-desc">Best ETA beats, route insights, and rematch nudges on favorite routes.</p></div>
+      <div class="card feat-card"><div class="feat-icon icon-dark">&#8962;</div><div class="feat-title">Places</div><p class="feat-desc">Home, work, school — geofenced so routes name themselves.</p></div>
+      <div class="card feat-card"><div class="feat-icon icon-dark">&#9789;</div><div class="feat-title">Quiet hours</div><p class="feat-desc">Location downtime overnight. No tracking while you sleep.</p></div>
+      <div class="card feat-card"><div class="feat-icon icon-dark">&#9750;</div><div class="feat-title">Safety warnings</div><p class="feat-desc">Tunable alerts for braking, acceleration, and speed — never scored.</p></div>
+      <div class="card feat-card"><div class="feat-icon icon-dark">&#8998;</div><div class="feat-title">On-device privacy</div><p class="feat-desc">Drives are stored on your phone. Nothing is shared, ever.</p></div>
+    </div>
+  </section>
+
+  <!-- PASSPORT -->
+  <section id="passport" class="section passport-section">
+    <div class="passport-copy">
+      <div class="eyebrow">THE PASSPORT</div>
+      <h2 class="section-title">Every mile becomes a stamp.</h2>
+      <p class="passport-sub">Drives, distance, time shaved, cities, streaks — all rolled into one shareable passport. Post the wins. Keep the receipts.</p>
+      <div class="check-list">
+        <div class="check-row"><span class="check-badge">&check;</span>All-time and weekly views</div>
+        <div class="check-row"><span class="check-badge">&check;</span>One-tap share cards — images you generate yourself</div>
+        <div class="check-row"><span class="check-badge">&check;</span>8 achievements to unlock along the way</div>
       </div>
-
-      <div class="hero-visual reveal" id="hud">
-        <div class="mini-map" aria-hidden="true">
-          <svg viewBox="0 0 320 240" class="mini-map__canvas">
-            <defs>
-              <linearGradient id="roadGrad" x1="0%" x2="100%">
-                <stop offset="0%" stop-color="rgba(30,30,30,0.72)" />
-                <stop offset="100%" stop-color="rgba(120,120,120,0.9)" />
-              </linearGradient>
-            </defs>
-            <path d="M20 210 C80 180 100 120 160 120 S260 60 300 80" />
-          </svg>
-          <div class="navigator"></div>
-          <div class="ping ping-a"></div>
-          <div class="ping ping-b"></div>
-        </div>
+      <div class="badge-row">
+        <div class="mini-badge"><span class="mini-badge-icon">&#9873;</span>First save</div>
+        <div class="mini-badge"><span class="mini-badge-icon">&minus;10</span>Ten under</div>
+        <div class="mini-badge"><span class="mini-badge-icon">&#9684;</span>Hour hero</div>
+        <div class="mini-badge"><span class="mini-badge-icon">7</span>Week streak</div>
+        <div class="mini-badge"><span class="mini-badge-icon">1K</span>Road tripper</div>
+        <div class="mini-badge"><span class="mini-badge-icon">&#9789;</span>Night owl</div>
       </div>
-    </section>
+    </div>
 
-    <section class="feature-grid" id="features">
-      <article class="card reveal">
-        <p class="eyebrow">TR1Ptronic</p>
-        <h3>Automatic trip detection</h3>
-        <p>TR1P watches for real driving motion, starts tracking on its own, and still gives you a manual start and stop option when you want control.</p>
-        <div class="tag">Auto detect</div>
-        <div class="tag">Manual override</div>
-      </article>
-
-      <article class="card reveal">
-        <p class="eyebrow">Trip detail</p>
-        <h3>Every drive becomes a usable record</h3>
-        <p>Review route previews, duration, distance, speed data, and whether a drive saved or added time compared with the usual route.</p>
-        <div class="sparkline" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <p class="eyebrow">Safety</p>
-        <h3>See what happened during the drive</h3>
-        <p>Harsh braking, harsh acceleration, and incident moments get collected into a timeline so the trip is more than just a line on a map.</p>
-        <div class="tag">Harsh braking</div>
-        <div class="tag">Harsh acceleration</div>
-      </article>
-
-      <article class="card reveal" id="social">
-        <p class="eyebrow">Insights</p>
-        <h3>Stats that feel premium</h3>
-        <p>Filter your stats by day, week, month, or year, unlock advanced insights, and share clean trip cards when a drive is worth sending.</p>
-        <div class="avatars" aria-hidden="true">
-          <span class="dot" style="--d:0"></span>
-          <span class="dot" style="--d:1"></span>
-          <span class="dot" style="--d:2"></span>
-          <span class="dot" style="--d:3"></span>
-        </div>
-      </article>
-    </section>
-
-    <section class="phone-showcase reveal" aria-label="Product screens">
-      <div class="phone-cluster">
-        <figure class="phone phone-left">
-          <img src="./assets/1.png" alt="TR1P statistics screen showing performance over time" loading="lazy" />
-        </figure>
-        <figure class="phone phone-center">
-          <img src="./assets/2.png" alt="TR1P live tracking HUD with speed and route" loading="lazy" />
-        </figure>
-        <figure class="phone phone-right">
-          <img src="./assets/3.png" alt="TR1P trip history list with mini maps and durations" loading="lazy" />
-        </figure>
+    <div class="passport-card" id="passportCard">
+      <div class="passport-top">
+        <div class="passport-title">ALL-TIME PASSPORT</div>
+        <div class="passport-icon">&#8996;</div>
       </div>
-      <div class="phone-showcase__copy">
-        <p class="eyebrow">Inside TR1P</p>
-        <h2>A cleaner way to understand every drive</h2>
-        <p class="lede">Stats, live tracking, and trip history each get their own lane here so the product feels organized, intentional, and easy to scan.</p>
-        <div class="phone-showcase__stats">
-          <div class="mini-stat">
-            <span class="mini-stat__label">Stats</span>
-            <strong>1 day to 1 year filtering</strong>
-            <p>Compare distance, speed distribution, monthly distance, and drive streaks over time.</p>
-          </div>
-          <div class="mini-stat">
-            <span class="mini-stat__label">Tracking</span>
-            <strong>Live HUD with route context</strong>
-            <p>Automatic detection, live route capture, speed context, and route timing without manual logging.</p>
-          </div>
-          <div class="mini-stat">
-            <span class="mini-stat__label">History</span>
-            <strong>Share, archive, or review later</strong>
-            <p>Trip cards stay organized with map previews, quick actions, and clean summaries ready to share.</p>
-          </div>
-        </div>
+      <div class="passport-sub2">DRIVER · CONDUCTEUR · CONDUCTOR</div>
+      <div class="passport-grid-2">
+        <div><div class="p-label">DRIVES</div><div class="p-big" data-target="132" id="pDrives">0</div><div class="p-note">14 night drives</div></div>
+        <div><div class="p-label">DISTANCE</div><div class="p-big"><span data-target="4218" id="pMiles">0</span> mi</div><div class="p-note">0.17&times; around the world</div></div>
       </div>
-    </section>
+      <div class="passport-grid-3">
+        <div><div class="p-label">TIME SHAVED</div><div class="p-mid" id="pShaved">0h 0m</div></div>
+        <div><div class="p-label">CITIES</div><div class="p-mid" data-target="14" id="pCities">0</div></div>
+        <div><div class="p-label">STREAK</div><div class="p-mid"><span data-target="12" id="pStreak">0</span>d</div></div>
+      </div>
+      <div class="route-strip">
+        <span class="route-stop">HOME</span><span class="route-gap"></span>
+        <span class="route-stop">GYM</span><span class="route-gap"></span>
+        <span class="route-stop">WORK</span><span class="route-gap"></span>
+        <span class="route-stop">LAKE</span><span class="route-gap"></span>
+        <span class="route-stop">DTWN</span><span class="route-gap"></span>
+        <span class="route-dot"></span>
+      </div>
+    </div>
+  </section>
 
-    <section class="insight-rows">
-      <article class="insight-row reveal">
-        <div>
-          <p class="eyebrow">Drive intelligence</p>
-          <h3>From trip detection to premium insights</h3>
-        </div>
-        <p>TR1P is built to feel automatic first. It detects drives, records route and distance data, and turns each trip into something easy to read instead of another forgotten log.</p>
-      </article>
-      <article class="insight-row reveal">
-        <div>
-          <p class="eyebrow">Trip detail</p>
-          <h3>Useful in the moment and useful later</h3>
-        </div>
-        <p>Users can see how far they drove, how long the trip took, how fast they were going, and whether the route saved or added time, all from one clean detail view.</p>
-      </article>
-      <article class="insight-row reveal">
-        <div>
-          <p class="eyebrow">Control</p>
-          <h3>Fine-tune how TR1P behaves</h3>
-        </div>
-        <p>Settings let users dial in trip detection, while premium unlocks, free rewards, sharable cards, and stats filtering push the app beyond simple route logging.</p>
-      </article>
-    </section>
+  <!-- SAFETY -->
+  <section class="section">
+    <div class="safety-band">
+      <div>
+        <div class="eyebrow eyebrow-blue">BUILT RESPONSIBLY</div>
+        <h2 class="section-title safety-title">A scoreboard, not a speedometer.</h2>
+        <p class="safety-desc">Most ETA wins come from route choice, departure timing, and traffic luck — not speed. Safety warnings for hard braking, acceleration, and speeding are tunable and never affect your score.</p>
+      </div>
+      <div class="trust-list">
+        <div class="trust-row"><span class="trust-icon">&#8998;</span><div><div class="trust-title">Location, only while driving</div><div class="trust-sub">Detection runs on the motion chip</div></div></div>
+        <div class="trust-row"><span class="trust-icon">&#9750;</span><div><div class="trust-title">Tunable safety sliders</div><div class="trust-sub">Braking, acceleration, and speeding thresholds you control</div></div></div>
+        <div class="trust-row"><span class="trust-icon">&check;</span><div><div class="trust-title">Never shared</div><div class="trust-sub">Drives stay on your phone. Share cards are images you make yourself.</div></div></div>
+      </div>
+    </div>
+  </section>
 
-    <section class="feature-matrix reveal" aria-label="TR1P feature list">
-      <div class="feature-matrix__intro">
-        <p class="eyebrow">15 client-facing features</p>
-        <h2>Everything the app already does</h2>
-      </div>
-      <div class="feature-list">
-        <div class="feature-pill">Automatic trip detection with TR1Ptronic</div>
-        <div class="feature-pill">Manual trip start and stop option</div>
-        <div class="feature-pill">Full trip history with detailed trip cards</div>
-        <div class="feature-pill">Interactive map preview for each drive</div>
-        <div class="feature-pill">Trip detail screen with route, duration, distance, and speed data</div>
-        <div class="feature-pill">Time saved or time added tracking for each trip</div>
-        <div class="feature-pill">Harsh braking detection</div>
-        <div class="feature-pill">Harsh acceleration detection</div>
-        <div class="feature-pill">Incident timeline for each trip</div>
-        <div class="feature-pill">Statistics dashboard with filter ranges from 1 day to 1 year</div>
-        <div class="feature-pill">Speed distribution and monthly distance charts</div>
-        <div class="feature-pill">Drive streak tracking</div>
-        <div class="feature-pill">Swipe actions to archive or delete trips</div>
-        <div class="feature-pill">Shareable trip summary cards for messages and other apps</div>
-        <div class="feature-pill">Premium upgrade flow with free unlocks for advanced trip insights</div>
-      </div>
-    </section>
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="pricing-head">
+      <div class="eyebrow">PRICING</div>
+      <h2 class="section-title" style="margin-left:auto;margin-right:auto;">Free to race. Premium to go unlimited.</h2>
+      <p class="pricing-sub">Free tier scores 3 drives a week. Premium unlocks <span class="ticker-word" id="pricingTicker">unlimited drives</span>.</p>
+    </div>
+    <div class="grid grid-3 plans" id="plans">
+      <button class="plan" data-plan="monthly" type="button">
+        <div class="plan-name">Monthly</div>
+        <div class="plan-blurb">All Premium features, month to month.</div>
+        <div class="plan-price"><span class="price">$5.99</span><span class="per">/ month</span></div>
+        <div class="plan-bill">Cancel anytime</div>
+        <div class="plan-spacer"></div>
+        <div class="plan-cta">Start free trial</div>
+      </button>
+      <button class="plan is-selected" data-plan="annual" type="button">
+        <div class="plan-badge">BEST VALUE</div>
+        <div class="plan-name">Unlimited Annual</div>
+        <div class="plan-blurb">Every drive scored, all features, all year.</div>
+        <div class="plan-price"><span class="price">$2.49</span><span class="per">/ month</span></div>
+        <div class="plan-bill">$29.99 billed annually</div>
+        <div class="plan-save">SAVE 58%</div>
+        <div class="plan-spacer"></div>
+        <div class="plan-cta">Start 7-day free trial</div>
+      </button>
+      <button class="plan" data-plan="lifetime" type="button">
+        <div class="plan-name">Lifetime</div>
+        <div class="plan-blurb">One payment. Yours forever.</div>
+        <div class="plan-price"><span class="price">$79.99</span><span class="per">once</span></div>
+        <div class="plan-bill">All future features included</div>
+        <div class="plan-spacer"></div>
+        <div class="plan-cta">Buy once</div>
+      </button>
+    </div>
+    <div class="pricing-foot">
+      <span>&#8734; Unlimited tracked drives on Premium</span>
+      <span>&check; 7-day free trial, cancel anytime</span>
+    </div>
+  </section>
 
-    <section class="speed-story reveal" aria-label="Time saved while driving">
-      <div class="speed-story__copy">
-        <p class="eyebrow">Time saved</p>
-        <h2>Ever wondered how much time you cut off while speeding?</h2>
-        <p class="lede">TR1P turns that feeling into something visible. Instead of guessing, you can see when a route actually saved time, when it added time, and whether pushing harder made any real difference at all.</p>
-        <div class="speed-story__stats">
-          <div class="mini-stat">
-            <span class="mini-stat__label">Reality check</span>
-            <strong>Minutes, not myths</strong>
-            <p>See how small speed gains can translate into surprisingly small time changes.</p>
-          </div>
-          <div class="mini-stat">
-            <span class="mini-stat__label">Trip detail</span>
-            <strong>Time saved or added</strong>
-            <p>Every drive can show whether the route helped or slowed you down compared with normal patterns.</p>
-          </div>
-        </div>
+  <!-- FAQ -->
+  <section id="faq" class="section faq-section">
+    <div class="eyebrow eyebrow-center">FAQ</div>
+    <h2 class="section-title faq-title">Fair questions.</h2>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>How does TR1P score a drive?</span><span class="chev">&rsaquo;</span>
+        </button>
+        <div class="faq-a">When a drive starts we snapshot the map&rsquo;s predicted ETA for your route. Arrive earlier and the difference is banked as time shaved. Arrive later and it just counts as a drive — no penalty.</div>
       </div>
-      <div class="speed-visual" aria-hidden="true">
-        <div class="speed-visual__card">
-          <div class="speed-visual__labels">
-            <span>Cruising</span>
-            <span>Speeding</span>
-          </div>
-          <div class="speed-lane">
-            <div class="speed-lane__track"></div>
-            <div class="speed-lane__car speed-lane__car--base"></div>
-            <div class="speed-lane__car speed-lane__car--fast"></div>
-          </div>
-          <div class="speed-visual__footer">
-            <div>
-              <span class="mini-stat__label">Average trip</span>
-              <strong>18.4 mi</strong>
-            </div>
-            <div>
-              <span class="mini-stat__label">Difference</span>
-              <strong>-2m 14s</strong>
-            </div>
-          </div>
-        </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>Does TR1P encourage speeding?</span><span class="chev">&rsaquo;</span>
+        </button>
+        <div class="faq-a">No. Most ETA wins come from route choice, departure timing, and traffic luck. Safety warnings are separate and never affect your score.</div>
       </div>
-    </section>
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>How much battery does tracking use?</span><span class="chev">&rsaquo;</span>
+        </button>
+        <div class="faq-a">Very little. Auto-detection uses the motion chip, and location runs only while you drive.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>Is my location data shared?</span><span class="chev">&rsaquo;</span>
+        </button>
+        <div class="faq-a">Never. Drives are stored on your phone. Share cards are images you generate yourself.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>What do I get for free?</span><span class="chev">&rsaquo;</span>
+        </button>
+        <div class="faq-a">3 scored drives a week, the live race, streaks, and your passport. Premium removes the cap and adds Live Activities, records, and instant results the second you park.</div>
+      </div>
+    </div>
+  </section>
 
-    <section class="split" id="cta">
-      <div class="reveal">
-        <p class="eyebrow">Privacy-first</p>
-        <h2>Your data stays on your phone</h2>
-        <p class="lede">Encrypted local storage with optional iCloud sync. You choose what leaves the device—share a single trip or nothing at all.</p>
-        <div class="cta-row">
-          <a class="primary" href="https://testflight.apple.com/join/YW9Vkv33" target="_blank" rel="noopener">Request invite</a>
-          <a class="ghost" href="#features">View sample trips</a>
-        </div>
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="hero-glow" aria-hidden="true">
+      <div class="orb orb-c"></div>
+      <div class="orb orb-d"></div>
+    </div>
+    <div class="final-inner">
+      <div class="final-mark">
+        <span class="brand-body-lg"></span>
       </div>
-      <div class="timeline reveal" aria-label="Timeline of a tracked trip">
-        <div class="step">
-          <div class="dot"></div>
-          <div>
-            <p class="label">Detect</p>
-            <p>Motion kicks in, TR1P starts silently.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="dot"></div>
-          <div>
-            <p class="label">Track</p>
-            <p>Live HUD with map, speed, distance, ETA delta.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="dot"></div>
-          <div>
-            <p class="label">Store</p>
-            <p>Trip saved with mini map, stats, and archive options.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="dot"></div>
-          <div>
-            <p class="label">Share (optional)</p>
-            <p>Send a highlight to friends—no location leaking without consent.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+      <h2 class="final-title">The map thinks it knows.<br>Prove it wrong.</h2>
+      <p class="final-sub">Free to try · 3 drives a week · your first race starts today</p>
+      <a class="btn btn-white btn-lg" href="https://testflight.apple.com/join/YW9Vkv33">Download for iPhone</a>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <div>TR1P © 2026 • Built for drivers who obsess over the details.</div>
-    <div class="footer-links">
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="#top" class="brand footer-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <span class="brand-wheel brand-wheel-l"></span>
+        <span class="brand-wheel brand-wheel-r"></span>
+        <span class="brand-body"></span>
+      </span>
+      <span class="brand-name">TR1P</span>
+    </a>
+    <nav class="footer-links">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
       <a href="./privacy.html">Privacy</a>
-      <a href="#">Status</a>
       <a href="./suggest.html">Suggest</a>
       <a href="./support.html">Support</a>
-    </div>
-  </footer>
+    </nav>
+    <div class="footer-copy">&copy; 2026 TR1P · Your drives stay on your phone.</div>
+  </div>
+</footer>
 
-  <script src="./script.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
